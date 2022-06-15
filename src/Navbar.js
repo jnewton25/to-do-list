@@ -5,10 +5,10 @@ import {
 	Toolbar,
 	IconButton,
 	Typography,
-	//Button,
+	//Button
 } from "@mui/material";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
-import AddBoxIcon from "@mui/icons-material/AddBox";
+import FormDialog from "./Dialog";
 
 const Navbar = () => (
 	<div>
@@ -26,14 +26,7 @@ const Navbar = () => (
 					To-Do List
 				</Typography>
 				<Stack direction="row" spacing={2}>
-					<IconButton
-						size="large"
-						edge="start"
-						color="inherit"
-						aria-label="logo"
-					>
-						<AddBoxIcon />
-					</IconButton>
+					<FormDialog />
 				</Stack>
 			</Toolbar>
 		</AppBar>
