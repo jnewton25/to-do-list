@@ -1,6 +1,8 @@
 import "./App.css";
 import Navbar from "./Navbar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import "./CheckboxList.css";
+import CheckboxList from "./CheckboxList";
 
 const darkTheme = createTheme({
 	palette: {
@@ -13,6 +15,11 @@ function App() {
 		<ThemeProvider theme={darkTheme}>
 			<div>
 				<Navbar />
+			</div>
+			<div className="rowC">
+				<CheckboxList />
+				<CheckboxList />
+				<CheckboxList />
 			</div>
 		</ThemeProvider>
 	);
