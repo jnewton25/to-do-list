@@ -1,16 +1,17 @@
 import React from "react";
+import "./CheckboxList.css";
 import {
+	IconButton,
 	Stack,
 	AppBar,
 	Toolbar,
-	IconButton,
 	Typography,
 	TextField,
 } from "@mui/material";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 
-function Navbar1() {
+function Navbar({ input }) {
 	const [value, setValue] = React.useState("");
 	const handleChange = (e) => {
 		console.log(`Typed => ${e.target.value}`);
@@ -64,4 +65,4 @@ function Navbar1() {
 	);
 }
 
-export default Navbar1;
+export default Navbar;

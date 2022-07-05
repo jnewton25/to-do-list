@@ -12,12 +12,12 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function CheckboxList1(props) {
+function CheckboxList({ setInput }) {
 	const [checked, setChecked] = React.useState([0]);
 
 	const [textList, setTextList] = React.useState([
-		{ text: "Justin Newton" },
-		{ text: "Payton Newton" },
+		{ text: "Walk dog" },
+		{ text: "Fold clothes" },
 		{ text: "Go to the store at 4pm" },
 	]);
 
@@ -82,4 +82,4 @@ function CheckboxList1(props) {
 	);
 }
 
-export default CheckboxList1;
+export default CheckboxList;

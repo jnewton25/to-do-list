@@ -1,9 +1,9 @@
+import React from "react";
 import "./App.css";
-//import Navbar1 from "./Navbar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./CheckboxList.css";
-//import CheckboxList1 from "./CheckboxList";
-import { Navbar, CheckboxList } from "./Todoapp";
+import Navbar from "./Navbar";
+import CheckboxList from "./CheckboxList";
 
 const darkTheme = createTheme({
 	palette: {
@@ -12,13 +12,14 @@ const darkTheme = createTheme({
 });
 
 function App() {
+	const [input, setInput] = React.useState("");
+
 	return (
 		<ThemeProvider theme={darkTheme}>
 			<div>
-				<Navbar />
+				<Navbar input={input} />
 			</div>
 			<div
-				//className="rowC"
 				style={{
 					display: "flex",
 					justifyContent: "center",
@@ -27,7 +28,7 @@ function App() {
 					backgroundColor: "#181818",
 				}}
 			>
-				<CheckboxList />
+				<CheckboxList setInput={setInput} />
 			</div>
 		</ThemeProvider>
 	);
