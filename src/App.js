@@ -1,9 +1,8 @@
 import React from "react";
-import "./App.css";
+import { Navbar } from "./components/navbar/navbar";
+import { CheckboxList } from "./components/check-box-list/check-box-list";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import "./CheckboxList.css";
-import Navbar from "./Navbar";
-import CheckboxList from "./CheckboxList";
+import "./App.css";
 
 const darkTheme = createTheme({
 	palette: {
@@ -13,11 +12,26 @@ const darkTheme = createTheme({
 
 function App() {
 	const [input, setInput] = React.useState("");
+	const [textList, setTextList] = React.useState([
+		{ text: "Walk dog" },
+		{ text: "Fold clothes" },
+		{ text: "Go to the store at 4pm" },
+	]);
+
+	const addToTextList = (item) => {
+		setTextList((textList) => [...textList, item]);
+	};
+
+	const removeFromTextList = (index) => {
+		console.log("uses a splice method to figure this part out!", index);
+		textList.splice(index, 1);
+		setTextList((textList) => [...textList]);
+	};
 
 	return (
 		<ThemeProvider theme={darkTheme}>
 			<div>
-				<Navbar input={input} />
+				<Navbar input={input} addToTextList={addToTextList} />
 			</div>
 			<div
 				style={{
@@ -28,7 +42,11 @@ function App() {
 					backgroundColor: "#181818",
 				}}
 			>
-				<CheckboxList setInput={setInput} />
+				<CheckboxList
+					setInput={setInput}
+					textList={textList}
+					removeFromTextList={removeFromTextList}
+				/>
 			</div>
 		</ThemeProvider>
 	);

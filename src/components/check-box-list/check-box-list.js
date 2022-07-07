@@ -1,5 +1,4 @@
 import React from "react";
-import "./CheckboxList.css";
 import {
 	List,
 	ListItem,
@@ -11,21 +10,10 @@ import {
 	IconButton,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import "./check-box-list.css";
 
-function CheckboxList({ setInput }) {
+export const CheckboxList = (props) => {
 	const [checked, setChecked] = React.useState([0]);
-
-	const [textList, setTextList] = React.useState([
-		{ text: "Walk dog" },
-		{ text: "Fold clothes" },
-		{ text: "Go to the store at 4pm" },
-	]);
-
-	const handleAdd = (name) => {
-		let listValue = { text: { name } };
-		let arr = textList.concat(listValue);
-		setTextList(arr);
-	};
 
 	const handleToggle = (item) => () => {
 		const currentIndex = checked.indexOf(item);
@@ -45,13 +33,18 @@ function CheckboxList({ setInput }) {
 			sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}
 			subheader={<ListSubheader>Tasks To Be Completed</ListSubheader>}
 		>
-			{textList.map((item) => {
+			{props.textList.map((item) => {
 				return (
 					<ListItem
 						key={item.text}
 						secondaryAction={
 							<IconButton edge="end" aria-label="comments">
-								<DeleteIcon />
+								<DeleteIcon
+									onClick={() => {
+										console.log(item.text);
+										props.removeFromTextList(item.text);
+									}}
+								/>
 							</IconButton>
 						}
 						disablePadding
@@ -80,6 +73,4 @@ function CheckboxList({ setInput }) {
 			})}
 		</List>
 	);
-}
-
-export default CheckboxList;
+};
