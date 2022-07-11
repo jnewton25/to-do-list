@@ -18,6 +18,14 @@ export const Navbar = (props) => {
 		setValue(e.target.value);
 	};
 
+	const handleKey = (e) => {
+		if (e.keyCode === 13) {
+			props.addToTextList({ text: value });
+			setValue("");
+			props.blur();
+		}
+	};
+
 	return (
 		<div>
 			<AppBar position="fixed">
@@ -46,6 +54,7 @@ export const Navbar = (props) => {
 							style={{ width: "15rem" }}
 							value={value}
 							onChange={handleChange}
+							onKeyDown={handleKey}
 						/>
 						<IconButton
 							size="large"
