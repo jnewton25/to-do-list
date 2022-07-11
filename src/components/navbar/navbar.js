@@ -1,5 +1,12 @@
 import React from "react";
-import { IconButton, Stack, AppBar, Toolbar, Typography, TextField,} from "@mui/material";
+import {
+	IconButton,
+	Stack,
+	AppBar,
+	Toolbar,
+	Typography,
+	TextField,
+} from "@mui/material";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import "./navbar.css";
@@ -46,8 +53,9 @@ export const Navbar = (props) => {
 							color="inherit"
 							aria-label="logo"
 							onClick={() => {
-								console.log(value)
-								props.addToTextList({text: value})
+								console.log(value);
+								props.addToTextList({ text: value });
+								setValue("");
 							}}
 						>
 							<AddBoxIcon />
@@ -57,4 +65,4 @@ export const Navbar = (props) => {
 			</AppBar>
 		</div>
 	);
-}
+};

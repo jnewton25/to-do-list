@@ -33,7 +33,7 @@ export const CheckboxList = (props) => {
 			sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}
 			subheader={<ListSubheader>Tasks To Be Completed</ListSubheader>}
 		>
-			{props.textList.map((item) => {
+			{props.textList.map((item, i) => {
 				return (
 					<ListItem
 						key={item.text}
@@ -42,7 +42,7 @@ export const CheckboxList = (props) => {
 								<DeleteIcon
 									onClick={() => {
 										console.log(item.text);
-										props.removeFromTextList(item.text);
+										props.removeFromTextList(i);
 									}}
 								/>
 							</IconButton>
